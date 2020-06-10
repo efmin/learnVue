@@ -2,6 +2,8 @@
   <div id="website-form">
     <form @submit.prevent="handleSubmit">
       <label>Website name</label>
+      <!-- keypress and focus to clearStatus resets the error messages
+    to go away when user starts typing again -->
       <input
         ref="first"
         v-model="website.name"

@@ -5,12 +5,17 @@
           <tr>
             <th>Website Name</th>
             <th>Website URL</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="website in websites" :key="website.id">
             <td>{{ website.name }}</td>
             <td>{{ website.url }}</td>
+            <td>
+              <button>Edit</button>
+              <button>Delete</button>
+            </td>
           </tr>
         </tbody>
       </table>
