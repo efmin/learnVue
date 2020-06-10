@@ -2,7 +2,10 @@
   <div id="website-form">
     <form @submit.prevent="handleSubmit">
       <label>Website name</label>
-      <input v-model="website.name" type="text" />
+      <input
+        v-model="website.name"
+        type="text"
+         />
       <label>Website URL</label>
       <input v-model="website.url" type="text" />
       <button>Add Website</button>
@@ -15,6 +18,12 @@
     name: 'website-form',
     data() {
       return {
+        // add a submitting state to check if the form is being submitted
+        submitting: false,
+        // add error state if something went wrong
+        error: false,
+        // add success state for if it goes through properly
+        success: false,
         website: {
           name: '',
           url: '',
@@ -23,15 +32,64 @@
     },
     methods: {
       handleSubmit(){
-        this.$emit('add:website', this.website),
-        console.log('inside handleSubmit')
+        this.submitting = true
+        // set submitting to tru
+        this.clearStatus()
+        // call clearStatus method to clear the success and error status in
+        // cause they have values set
+
+        // check form validation, return error if either passes
+        if (this.invalidName || this.invalidUrl) {
+          this.error = true
+          return
+        }
+        // fill website object with name and url, emit object
+        this.$emit('add:website', this.website)
+        this.website = {
+          name: '',
+          url: '',
+        }
+        // reset all form state values
+        this.error = false
+        this.success = true
+        this.submitting = false
+      },
+
+      clearStatus() {
+        this.success = false
+        this.error = false
+      }
+    },
+    // computed properties are functions that are automatically
+    // computed when something changes
+    computed: {
+      invalidName() {
+        return this.website.name === ''
+      },
+
+      invalidUrl() {
+        return this.website.url === ''
       },
     },
   }
+
 </script>
 
 <style scoped>
   form {
     margin-bottom: 2rem;
   }
+
+  [class*='-message'] {
+  font-weight: 500;
+  }
+
+  .error-message {
+    color: #d33c40;
+  }
+
+  .success-message {
+    color: #32a95d;
+  }
+
 </style>
