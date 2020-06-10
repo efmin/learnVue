@@ -16,7 +16,7 @@
             <td>{{ website.name }}</td>
             <td>{{ website.url }}</td>
             <td>
-              <button>Edit</button>
+              <button @click="editMode(website.id)" >Edit</button>
               <button @click="$emit('delete:website', website.id)">Delete</button>
             </td>
           </tr>
@@ -34,4 +34,8 @@
   }
 </script>
 
-<style scoped></style>
+<style scoped>
+  button {
+    margin: 0 0.5rem 0 0;
+  }
+</style>

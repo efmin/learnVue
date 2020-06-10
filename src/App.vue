@@ -4,8 +4,11 @@
 
     <website-form @add:website="addWebsite" />
 
-    <website-table :websites="websites"
-      @delete:website="deleteWebsite" />
+    <website-table
+      :websites="websites"
+      @delete:website="deleteWebsite"
+      @edit:website="editWebsite"
+    />
   </div>
 </template>
 
@@ -56,6 +59,11 @@ export default {
     deleteWebsite(id) {
       this.website = this.website.filter(
         website => website.id != id
+      )
+    },
+    editWebsite(id, updatedWebsite) {
+      this.websites = this.websites.map(website =>
+        website.id === id ? updatedWebsite : website 
       )
     }
   }
