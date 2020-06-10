@@ -14,7 +14,7 @@
             <td>{{ website.url }}</td>
             <td>
               <button>Edit</button>
-              <button>Delete</button>
+              <button @click="$emit('delete:website', website.id)">Delete</button>
             </td>
           </tr>
         </tbody>
