@@ -8,17 +8,9 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>New York Times</td>
-            <td>https://www.nytimes.com</td>
-          </tr>
-          <tr>
-            <td>Financial Times</td>
-            <td>https://www.ft.com</td>
-          </tr>
-          <tr>
-            <td>Aljazeera</td>
-            <td>https://www.aljazeera.com</td>
+          <tr v-for="website in websites" :key="website.id">
+            <td>{{ website.name }}</td>
+            <td>{{ website.url }}</td>
           </tr>
         </tbody>
       </table>
@@ -29,7 +21,7 @@
   export default {
     name: 'website-table',
     props: {
-      website: Array,
+      websites: Array,
     },
   }
 </script>
