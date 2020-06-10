@@ -16,6 +16,12 @@
       :class="{ 'has-error': submitting && invalidUrl }"
       @focus="clearStatus"
        />
+       <p v-if="error && submitting" class="error-message">
+         Please fill out the required fields!
+       </p>
+       <p v-if="success" class="success-message">
+         Employee successfully added
+       </p>
       <button>Add Website</button>
     </form>
   </div>
