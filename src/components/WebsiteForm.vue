@@ -2,9 +2,9 @@
   <div id="employee-form">
     <form>
       <label>Website name</label>
-      <input type="text" />
+      <input type="text" v-model="website.name"/>
       <label>Website URL</label>
-      <input type="text" />
+      <input type="text" v-model="website.url" />
       <button>Add Website</button>
     </form>
   </div>
