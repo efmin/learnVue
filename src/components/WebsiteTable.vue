@@ -28,6 +28,9 @@
 <script>
   export default {
     name: 'website-table',
+    props: {
+      website: Array,
+    },
   }
 </script>
 

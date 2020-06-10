@@ -2,7 +2,7 @@
   <div id="app" class="small-container">
     <h1>Websites</h1>
 
-    <website-table />
+    <website-table :websites="websites" />
   </div>
 </template>
 
@@ -14,6 +14,27 @@ export default {
   name: 'App',
   components: {
     WebsiteTable
+  },
+  data() {
+    return {
+      websites: [
+        {
+          id: 1,
+          name: 'New York Times',
+          url: 'https://www.nytimes.com'
+        },
+        {
+          id: 2,
+          name: 'Financial Times',
+          url: 'https://www.ft.com'
+        },
+        {
+          id: 3,
+          name: 'Aljazeera',
+          url: 'https://www.aljazeera.com'
+        },
+      ],
+    }
   },
 }
 </script>
