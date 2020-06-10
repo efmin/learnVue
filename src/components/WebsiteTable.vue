@@ -13,9 +13,16 @@
         </thead>
         <tbody>
           <tr v-for="website in websites" :key="website.id">
-            <td>{{ website.name }}</td>
-            <td>{{ website.url }}</td>
-            <td>
+            <td v-if="editing === website.id">
+              <input type="text" v-model="website.name" />
+            </td>
+            <td v-else>{{ website.name }}</td>
+            <td v-if="editing === website.id">
+              <input type="text" v-model="website.url" />
+            </td>
+            <td v-else>{{ website.url }}</td>
+            <td v-if="editing === website.id">
+            <td v-else>
               <button @click="editMode(website.id)" >Edit</button>
               <button @click="$emit('delete:website', website.id)">Delete</button>
             </td>
@@ -31,6 +38,22 @@
     props: {
       websites: Array,
     },
+    data() {
+      return {
+        editing: null,
+      }
+    },
+    methods: {
+      editMode(id) {
+        this.editing = id
+      },
+
+      editWebsite(website) {
+        if (website.name === '' || website.url === '') return
+        this.$emit('edit:website', website.id, website)
+        this.editing = null
+      }
+    }
   }
 </script>
 
