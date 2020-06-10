@@ -5,9 +5,17 @@
       <input
         v-model="website.name"
         type="text"
+        :class="{ 'has-error': submitting && invalidName }"
+        @focus="clearStatus"
+        @keypress="clearStatus"
          />
       <label>Website URL</label>
-      <input v-model="website.url" type="text" />
+      <input
+      v-model="website.url"
+      type="text"
+      :class="{ 'has-error': submitting && invalidUrl }"
+      @focus="clearStatus"
+       />
       <button>Add Website</button>
     </form>
   </div>
@@ -33,7 +41,7 @@
     methods: {
       handleSubmit(){
         this.submitting = true
-        // set submitting to tru
+        // set submitting to true
         this.clearStatus()
         // call clearStatus method to clear the success and error status in
         // cause they have values set
