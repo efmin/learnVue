@@ -1,6 +1,9 @@
 <template>
   <div id="website-table">
-    <table>
+    <p v-if="websites.length < 1" class="empty-table">
+      No Websites Saved
+    </p>
+    <table v-else>
         <thead>
           <tr>
             <th>Website Name</th>
