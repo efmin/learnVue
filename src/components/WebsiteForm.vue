@@ -21,6 +21,11 @@
         },
       }
     },
+    methods: {
+      handleSubmit(){
+        console.log('testing handSubmit')
+      },
+    },
   }
 </script>
 
