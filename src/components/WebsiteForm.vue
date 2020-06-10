@@ -3,6 +3,7 @@
     <form @submit.prevent="handleSubmit">
       <label>Website name</label>
       <input
+        ref="first"
         v-model="website.name"
         type="text"
         :class="{ 'has-error': submitting && invalidName }"
@@ -59,6 +60,8 @@
         }
         // fill website object with name and url, emit object
         this.$emit('add:website', this.website)
+        // refocus the first input box upon submit
+        this.$refs.first.focus()
         this.website = {
           name: '',
           url: '',
