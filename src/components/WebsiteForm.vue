@@ -1,10 +1,10 @@
 <template>
-  <div id="employee-form">
+  <div id="website-form">
     <form @submit.prevent="handleSubmit">
       <label>Website name</label>
-      <input type="text" v-model="website.name"/>
+      <input v-model="website.name" type="text" />
       <label>Website URL</label>
-      <input type="text" v-model="website.url" />
+      <input v-model="website.url" type="text" />
       <button>Add Website</button>
     </form>
   </div>
@@ -23,7 +23,8 @@
     },
     methods: {
       handleSubmit(){
-        console.log('testing handSubmit')
+        this.$emit('add:website', this.website),
+        console.log('inside handleSubmit')
       },
     },
   }
