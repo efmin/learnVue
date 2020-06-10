@@ -2,7 +2,8 @@
   <div id="app" class="small-container">
     <h1>Websites</h1>
 
-    <website-form />
+    <website-form @add:website="addWebsite" />
+
     <website-table :websites="websites" />
   </div>
 </template>
@@ -39,6 +40,19 @@ export default {
       ],
     }
   },
+  methods: {
+    addWebsite(website){
+      console.log("inside addWebsite");
+      const lastId =
+        this.websites.length > 0
+        ? this.websites[this.websites.length - 1].id
+        : 0;
+      const id = lastId + 1;
+      const newWebsite = { ...website, id };
+
+      this.websites = [...this.websites, newWebsite];
+    }
+  }
 }
 </script>
 
