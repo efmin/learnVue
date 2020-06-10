@@ -4,7 +4,8 @@
 
     <website-form @add:website="addWebsite" />
 
-    <website-table :websites="websites" />
+    <website-table :websites="websites"
+      @delete:website="deleteWebsite" />
   </div>
 </template>
 
@@ -51,6 +52,11 @@ export default {
       const newWebsite = { ...website, id };
 
       this.websites = [...this.websites, newWebsite];
+    }
+    deleteWebsite(id) {
+      this.website = this.website.filter(
+        website => website.id != id
+      )
     }
   }
 }
