@@ -25,6 +25,7 @@
             <td v-else>
               <button @click="editMode(website.id)" >Edit</button>
               <button @click="$emit('delete:website', website.id)">Delete</button>
+              <button @click="cancelEdit(website.id)" >Cancel Edit</button>
             </td>
           </tr>
         </tbody>
@@ -52,6 +53,10 @@
         if (website.name === '' || website.url === '') return
         this.$emit('edit:website', website.id, website)
         this.editing = null
+      },
+      cancelEdit(website) {
+        Object.assign(website, this.cachedWebsite)
+        this.editing = null;
       }
     }
   }
