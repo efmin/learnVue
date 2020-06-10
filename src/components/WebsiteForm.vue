@@ -3,7 +3,7 @@
     <form>
       <label>Website name</label>
       <input type="text" />
-      <label>Website Email</label>
+      <label>Website URL</label>
       <input type="text" />
       <button>Add Website</button>
     </form>

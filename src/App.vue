@@ -2,6 +2,7 @@
   <div id="app" class="small-container">
     <h1>Websites</h1>
 
+    <website-form />
     <website-table :websites="websites" />
   </div>
 </template>
@@ -9,11 +10,13 @@
 
 <script>
 import WebsiteTable from '@/components/WebsiteTable.vue'
+import WebsiteForm from '@/components/WebsiteForm.vue'
 
 export default {
   name: 'App',
   components: {
-    WebsiteTable
+    WebsiteTable,
+    WebsiteForm,
   },
   data() {
     return {
