@@ -1,6 +1,6 @@
 <template>
   <div id="employee-form">
-    <form>
+    <form @submit.prevent="handleSubmit">
       <label>Website name</label>
       <input type="text" v-model="website.name"/>
       <label>Website URL</label>
