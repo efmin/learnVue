@@ -63,7 +63,7 @@ export default {
     },
     editWebsite(id, updatedWebsite) {
       this.websites = this.websites.map(website =>
-        website.id === id ? updatedWebsite : website 
+        website.id === id ? updatedWebsite : website
       )
     }
   }
@@ -73,7 +73,7 @@ export default {
 
 <style>
   button {
-    background: #009435;
+    background: grey;
     border: 1px solid #009435
   }
 
