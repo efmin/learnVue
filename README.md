@@ -1,3 +1,5 @@
+Getting familiar with Vue.js via this tutorial: https://www.taniarascia.com/getting-started-with-vue/
+
 # vue-app
 
 ## Project setup
